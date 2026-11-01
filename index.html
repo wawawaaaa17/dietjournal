@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>森之小貓減肥手帳</title>
+  
+  <!-- iPhone 主畫面專屬圖示 (新增這行) -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- TAILWIND CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GOOGLE FONTS & CUSTOM SENTY DOUGHNUT STYLING -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              100: '#FFFCF7',
+              200: '#F7F3E9',
+              300: '#EFE7D8',
+            },
+            peach: {
+              100: '#FFF0ED',
+              200: '#FFE2DC',
+              300: '#FFAA9B',
+              400: '#FF8671',
+            },
+            freshSage: {
+              100: '#F2F8F3',
+              200: '#DBEFE0',
+              300: '#8FB896',
+            },
+            mint: {
+              100: '#E8F6F3',
+              200: '#CBECE5',
+              300: '#7DC8B8',
+            },
+            butter: {
+              100: '#FFFDF0',
+              200: '#FFF2C6',
+              300: '#FFDE75',
+            },
+            sketchBrown: '#43342B',
+          },
+          fontFamily: {
+            doodle: ['"Mochiy Pop One"', '"Zen Maru Gothic"', 'cursive', 'sans-serif'],
+            body: ['"Zen Maru Gothic"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* CUSTOM SENTY DOUGHNUT & HAND-DRAWN STYLE IMPORTS */
+    @font-face {
+      font-family: 'SentyDoughnut';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/SentyDoughnut.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      font-family: 'SentyDoughnut', 'Mochiy Pop One', 'Zen Maru Gothic', cursive, sans-serif;
+      background-color: #F6F3EC;
+      background-image: 
+        radial-gradient(#E2D9C8 1.5px, transparent 1.5px),
+        radial-gradient(#E2D9C8 1.5px, #F6F3EC 1.5px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      color: #43342B;
+    }
+
+    * {
+      font-family: 'SentyDoughnut', 'Mochiy Pop One', 'Zen Maru Gothic', cursive, sans-serif !important;
+    }
+
+    /* WASHI TAPE EFFECTS */
+    .washi-tape-peach {
+      background: rgba(255, 170, 155, 0.75);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      clip-path: polygon(0% 0%, 98% 2%, 100% 100%, 2% 98%);
+    }
+
+    .washi-tape-mint {
+      background: rgba(125, 200, 184, 0.75);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      clip-path: polygon(2% 0%, 100% 3%, 97% 97%, 0% 100%);
+    }
+
+    .washi-tape-yellow {
+      background: rgba(255, 222, 117, 0.8);
+      clip-path: polygon(1% 2%, 99% 0%, 98% 98%, 0% 96%);
+    }
+
+    /* HAND-DRAWN BORDER & CARD CONTAINER */
+    .journal-card {
+      background-color: #FFFCF7;
+      border: 3px solid #43342B;
+      border-radius: 24px;
+      box-shadow: 4px 5px 0px #43342B;
+      position: relative;
+    }
+
+    /* STAMP EFFECT */
+    .stamp-seal {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #FF8671;
+      color: #FF8671;
+      border-radius: 50%;
+      transform: rotate(-10deg);
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    /* CUSTOM SCROLLBAR FOR MOBILE */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5EBE1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FFAC9A;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen pb-20 pt-4 px-3 sm:px-6 max-w-md mx-auto relative select-none">
+
+  <!-- SVG HAND-DRAWN ICON LIBRARY -->
+  <svg class="hidden">
+    <defs>
+      <!-- LINGVISTOV STYLE CAT: PEEKING CALICO CAT -->
+      <g id="icon-lingvistov-bottom-calico">
+        <path d="M 10 60 C 10 25, 25 15, 45 15 C 65 15, 80 25, 80 60 Z" fill="#FFFDF9" stroke="#3D2E24" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M 12 35 C 18 20, 32 20, 26 42 C 18 45, 12 40, 12 35 Z" fill="#3D2E24"/>
+        <path d="M 52 20 C 68 18, 76 28, 70 42 C 60 40, 52 28, 52 20 Z" fill="#E28D4D"/>
+        <polygon points="18,22 10,2 30,12" fill="#3D2E24" stroke="#3D2E24" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="55,12 75,2 67,22" fill="#E28D4D" stroke="#3D2E24" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M 24 30 L 38 30 C 38 38, 24 38, 24 30 Z" fill="#FFFDF9" stroke="#3D2E24" stroke-width="2.5"/>
+        <circle cx="31" cy="33" r="2" fill="#3D2E24"/>
+        <path d="M 52 30 L 66 30 C 66 38, 52 38, 52 30 Z" fill="#FFFDF9" stroke="#3D2E24" stroke-width="2.5"/>
+        <circle cx="59" cy="33" r="2" fill="#3D2E24"/>
+        <path d="M 42 38 Q 45 42 48 38" fill="none" stroke="#3D2E24" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- CAT SITTING FULL BODY -->
+      <g id="icon-cat-sitting">
+        <polygon points="18,18 8,4 28,10" fill="#FF8A73" stroke="#4A3B32" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="42,10 62,4 52,18" fill="#FF8A73" stroke="#4A3B32" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M 16 24 C 10 38, 12 58, 22 62 C 30 64, 40 64, 48 62 C 58 58, 60 38, 54 24 C 50 14, 20 14, 16 24 Z" fill="#FFE27A" stroke="#4A3B32" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M 31 16 L 39 16 M 28 20 L 42 20 M 14 36 L 22 38 M 56 36 L 48 38" stroke="#FF8A73" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="27" cy="28" r="3" fill="#4A3B32"/>
+        <circle cx="43" cy="28" r="3" fill="#4A3B32"/>
+        <polygon points="35,31 32,34 38,34" fill="#FF8A73" stroke="#4A3B32" stroke-width="1"/>
+        <path d="M 31 36 Q 35 39 39 36" fill="none" stroke="#4A3B32" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="28" cy="58" rx="5" ry="4" fill="#FFFDF9" stroke="#4A3B32" stroke-width="2.5"/>
+        <ellipse cx="42" cy="58" rx="5" ry="4" fill="#FFFDF9" stroke="#4A3B32" stroke-width="2.5"/>
+      </g>
+
+      <!-- CAT PAW STAMP -->
+      <g id="icon-cat-paw">
+        <ellipse cx="28" cy="34" rx="13" ry="10" fill="#FF8A73" stroke="#4A3B32" stroke-width="3"/>
+        <circle cx="15" cy="18" r="5" fill="#FF8A73" stroke="#4A3B32" stroke-width="2.5"/>
+        <circle cx="24" cy="13" r="5.5" fill="#FF8A73" stroke="#4A3B32" stroke-width="2.5"/>
+        <circle cx="35" cy="13" r="5.5" fill="#FF8A73" stroke="#4A3B32" stroke-width="2.5"/>
+        <circle cx="44" cy="18" r="5" fill="#FF8A73" stroke="#4A3B32" stroke-width="2.5"/>
+      </g>
+
+      <!-- FISH BONE -->
+      <g id="icon-fishbone">
+        <path d="M 8 20 Q 14 12 20 20 Q 14 28 8 20 Z" fill="#FFF4C3" stroke="#4A3B32" stroke-width="2.5"/>
+        <line x1="20" y1="20" x2="48" y2="20" stroke="#4A3B32" stroke-width="3"/>
+        <line x1="26" y1="13" x2="26" y2="27" stroke="#4A3B32" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="34" y1="11" x2="34" y2="29" stroke="#4A3B32" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="42" y1="13" x2="42" y2="27" stroke="#4A3B32" stroke-width="2.5" stroke-linecap="round"/>
+        <polygon points="48,20 56,12 56,28" fill="#FFF4C3" stroke="#4A3B32" stroke-width="2.5"/>
+      </g>
+
+      <!-- JUMP ROPE / ITEM -->
+      <g id="icon-jumprope">
+        <path d="M 12 44 Q 28 10 44 44" fill="none" stroke="#FF8A73" stroke-width="4" stroke-dasharray="4 3" stroke-linecap="round"/>
+        <rect x="8" y="42" width="7" height="16" rx="3" fill="#FFE27A" stroke="#4A3B32" stroke-width="2.5"/>
+        <rect x="41" y="42" width="7" height="16" rx="3" fill="#FFE27A" stroke="#4A3B32" stroke-width="2.5"/>
+      </g>
+
+      <!-- CALENDAR HAND-DRAWN -->
+      <g id="icon-calendar-hand">
+        <rect x="8" y="12" width="48" height="44" rx="8" fill="#FFFDF9" stroke="#4A3B32" stroke-width="3.5"/>
+        <path d="M 8 24 L 56 24" stroke="#4A3B32" stroke-width="3"/>
+        <rect x="16" y="6" width="6" height="10" rx="3" fill="#FF8A73" stroke="#4A3B32" stroke-width="2"/>
+        <rect x="42" y="6" width="6" height="10" rx="3" fill="#FF8A73" stroke="#4A3B32" stroke-width="2"/>
+        <circle cx="20" cy="34" r="3" fill="#A4C499"/>
+        <circle cx="32" cy="34" r="3" fill="#FFAC9A"/>
+        <circle cx="44" cy="34" r="3" fill="#FFE27A"/>
+        <circle cx="20" cy="44" r="3" fill="#FF8A73"/>
+        <circle cx="32" cy="44" r="3" fill="#A4C499"/>
+      </g>
+
+      <!-- PENCIL / HANDWRITE -->
+      <g id="icon-pencil">
+        <path d="M 42 8 L 52 18 L 22 48 L 10 52 L 14 40 Z" fill="#FFE27A" stroke="#4A3B32" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M 36 14 L 46 24" stroke="#4A3B32" stroke-width="2.5"/>
+        <polygon points="10,52 14,40 22,48" fill="#FF8A73" stroke="#4A3B32" stroke-width="2"/>
+      </g>
+
+      <!-- CAT MILK BOTTLE -->
+      <g id="icon-milk">
+        <rect x="20" y="16" width="20" height="36" rx="6" fill="#FFFDF9" stroke="#4A3B32" stroke-width="3"/>
+        <rect x="22" y="8" width="16" height="8" rx="3" fill="#FFAC9A" stroke="#4A3B32" stroke-width="2.5"/>
+        <path d="M 20 28 L 40 28" stroke="#A4C499" stroke-width="3"/>
+        <circle cx="30" cy="38" r="4" fill="#FFD8CF"/>
+      </g>
+    </defs>
+  </svg>
+
+  <div class="space-y-4">
+
+    <!-- HEADER / DIARY TITLE CARD -->
+    <header class="journal-card p-4 relative overflow-hidden my-2">
+      <!-- WASHI TAPE DECORATION -->
+      <div class="washi-tape-peach absolute -top-2 left-10 w-20 h-5 z-10 transform -rotate-3 pointer-events-none"></div>
+      <div class="washi-tape-mint absolute -top-1 right-12 w-20 h-5 z-10 transform rotate-2 pointer-events-none"></div>
+
+      <div class="flex items-center justify-between pt-1 px-1">
+        <div class="flex items-center gap-3">
+          <!-- AVATAR / CAT ICON (NON-EDITABLE) -->
+          <div class="w-13 h-13 bg-mint-100 rounded-2xl border-2 border-sketchBrown flex items-center justify-center relative shadow-sm p-1">
+            <svg class="w-10 h-10" viewBox="0 0 100 65"><use href="#icon-lingvistov-bottom-calico"/></svg>
+          </div>
+
+          <!-- EDITABLE DIARY TITLE -->
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 id="displayAppTitle" onclick="openSettingsModal()" class="text-xl sm:text-2xl font-black text-sketchBrown tracking-wide cursor-pointer hover:text-mint-300 transition-colors">
+                森之小貓減肥手帳
+              </h1>
+              <button onclick="openSettingsModal()" class="text-sketchBrown/60 hover:text-sketchBrown">
+                <svg class="w-4 h-4" viewBox="0 0 60 60"><use href="#icon-pencil"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAMP DECORATION (FIXED ALIGNMENT) -->
+        <div class="flex items-center gap-1">
+          <div class="stamp-seal w-12 h-12 text-[10px] font-black">
+            <span>ファイト</span>
+            <span>加油!</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT CARD -->
+    <main class="space-y-4">
+
+      <!-- MAIN NAVIGATION TABS -->
+      <div class="flex bg-mint-100/80 p-1.5 rounded-2xl border-2 border-sketchBrown gap-1">
+        <button id="tabBtnCalendar" onclick="switchTab('calendar')" class="flex-1 py-1.5 rounded-xl text-xs font-bold transition-all text-sketchBrown bg-white shadow-sm flex items-center justify-center gap-1 border border-sketchBrown">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 64 64"><use href="#icon-calendar-hand"/></svg>
+          月曆記錄
+        </button>
+        <button id="tabBtnPlan" onclick="switchTab('plan')" class="flex-1 py-1.5 rounded-xl text-xs font-bold text-gray-600 hover:text-sketchBrown transition-all flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 60 60"><use href="#icon-jumprope"/></svg>
+          運動計畫
+        </button>
+        <button id="tabBtnTrend" onclick="switchTab('trend')" class="flex-1 py-1.5 rounded-xl text-xs font-bold text-gray-600 hover:text-sketchBrown transition-all flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          體重曲線
+        </button>
+      </div>
+
+      <!-- VIEW 1: MONTHLY CALENDAR -->
+      <section id="viewCalendar" class="journal-card p-4 space-y-3 relative">
+
+        <!-- MONTH SWITCHER HEADER -->
+        <div class="flex justify-between items-center px-1">
+          <button onclick="changeMonth(-1)" class="w-8 h-8 rounded-full bg-mint-100 hover:bg-mint-200 border-2 border-sketchBrown flex items-center justify-center text-sketchBrown font-bold active:scale-90 transition-transform">
+            ❮
+          </button>
+          
+          <div class="text-center flex items-center gap-2">
+            <svg class="w-5 h-5" viewBox="0 0 70 70"><use href="#icon-cat-sitting"/></svg>
+            <span id="calendarMonthLabel" class="text-base font-black text-sketchBrown">2026年 10月</span>
+            <svg class="w-5 h-5" viewBox="0 0 60 60"><use href="#icon-cat-paw"/></svg>
+          </div>
+
+          <button onclick="changeMonth(1)" class="w-8 h-8 rounded-full bg-mint-100 hover:bg-mint-200 border-2 border-sketchBrown flex items-center justify-center text-sketchBrown font-bold active:scale-90 transition-transform">
+            ❯
+          </button>
+        </div>
+
+        <!-- CALENDAR DAY NAMES -->
+        <div class="grid grid-cols-7 text-center font-bold text-xs text-sketchBrown/70 border-b-2 border-sketchBrown/20 pb-1.5">
+          <span class="text-peach-400">日</span>
+          <span>一</span>
+          <span>二</span>
+          <span>三</span>
+          <span>四</span>
+          <span>五</span>
+          <span class="text-mint-300">六</span>
+        </div>
+
+        <!-- CALENDAR GRID TILES -->
+        <div id="calendarGrid" class="grid grid-cols-7 gap-1">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="text-[11px] text-sketchBrown/70 text-center pt-2 flex items-center justify-center gap-2">
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-mint-300 inline-block border border-sketchBrown"></span> 🐾 已完成</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-butter-200 inline-block border border-sketchBrown"></span> 今日目標</span>
+        </div>
+      </section>
+
+      <!-- VIEW 2: WORKOUT PLAN CARD (NEW INTEGRATION) -->
+      <section id="viewPlan" class="journal-card p-4 space-y-3 relative hidden">
+        <div class="washi-tape-mint absolute -top-2 left-8 w-20 h-5 z-10 transform -rotate-2 pointer-events-none"></div>
+        
+        <div class="flex justify-between items-center border-b-2 border-sketchBrown/10 pb-2">
+          <h3 class="font-black text-sketchBrown text-sm flex items-center gap-1.5">
+            <svg class="w-5 h-5" viewBox="0 0 60 60"><use href="#icon-jumprope"/></svg>
+            每週運動菜單 (Weekly Plan)
+          </h3>
+          <!-- 可自由編輯運動菜單按鈕 -->
+          <button onclick="openEditPlanModal()" class="text-[11px] font-bold text-peach-400 hover:underline flex items-center gap-1 bg-peach-100 px-2 py-0.5 rounded-full border border-sketchBrown/30">
+            ⚙️ 編輯菜單
+          </button>
+        </div>
+
+        <div id="workoutPlanList" class="space-y-2">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- VIEW 3: WEIGHT TREND CHART -->
+      <section id="viewTrend" class="space-y-4 hidden">
+        <div class="journal-card p-4 relative">
+          <div class="washi-tape-peach absolute -top-2 right-10 w-20 h-5 z-10 transform rotate-1 pointer-events-none"></div>
+
+          <div class="flex justify-between items-center mb-3 pt-1">
+            <h3 class="font-black text-sketchBrown text-sm flex items-center gap-1">
+              <svg class="w-4 h-4" viewBox="0 0 60 60"><use href="#icon-fishbone"/></svg>
+              體重變化曲線
+            </h3>
+            <span class="text-xs text-sketchBrown bg-butter-200 px-2 py-0.5 rounded-full font-bold border border-sketchBrown/30">紀錄折線</span>
+          </div>
+
+          <!-- SVG CHART CANVAS -->
+          <div class="relative w-full h-56 bg-cream-100 rounded-2xl p-2 border-2 border-sketchBrown/20 flex flex-col justify-end overflow-hidden">
+            <svg id="weightSvgChart" class="w-full h-full" viewBox="0 0 320 180">
+              <!-- Rendered in JS -->
+            </svg>
+          </div>
+
+          <div class="mt-3 bg-butter-100 p-3 rounded-2xl border-2 border-sketchBrown/20 text-xs text-sketchBrown font-bold">
+            <p class="flex items-center gap-1.5 mb-1 text-sm">
+              <svg class="w-4 h-4" viewBox="0 0 70 70"><use href="#icon-cat-sitting"/></svg>
+              手帳小提醒
+            </p>
+            <p class="leading-relaxed text-[11px] text-gray-600">體重上下波動很正常喔！保持健康飲食與完成每日項目，累積起來就會有驚喜效果 🍃</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM FLOATING ACTION BUTTON -->
+    <nav class="fixed bottom-0 left-0 right-0 z-20 bg-transparent py-3 flex justify-center items-center pointer-events-none">
+      <button onclick="openDiaryModal(getTodayString())" class="pointer-events-auto w-14 h-14 bg-peach-300 hover:bg-peach-400 text-white rounded-full flex items-center justify-center text-2xl shadow-xl border-2 border-sketchBrown active:scale-95 transition-transform">
+        <svg class="w-7 h-7" viewBox="0 0 60 60"><use href="#icon-pencil"/></svg>
+      </button>
+    </nav>
+
+    <!-- MODAL 1: DAILY DIARY EDITOR -->
+    <div id="diaryModal" class="fixed inset-0 bg-sketchBrown/40 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+      <div class="bg-cream-100 w-full max-w-sm rounded-3xl border-3 border-sketchBrown shadow-2xl overflow-hidden flex flex-col max-h-[90vh] relative animate-fade-in">
+        
+        <!-- MODAL HEADER -->
+        <div class="bg-peach-200 p-3.5 border-b-2 border-sketchBrown flex justify-between items-center relative overflow-hidden">
+          <div class="washi-tape-mint absolute -top-1 left-12 w-16 h-4 transform -rotate-2"></div>
+          
+          <div class="flex items-center gap-2 z-10">
+            <svg class="w-7 h-7" viewBox="0 0 70 70"><use href="#icon-cat-sitting"/></svg>
+            <h3 id="modalDiaryDate" class="font-black text-sketchBrown text-base">2026-10-30</h3>
+          </div>
+
+          <button onclick="closeDiaryModal()" class="w-7 h-7 rounded-full bg-white border-2 border-sketchBrown flex items-center justify-center font-bold text-sketchBrown hover:bg-peach-100 z-10">
+            ✕
+          </button>
+        </div>
+
+        <!-- MODAL BODY FORM -->
+        <div class="p-4 space-y-4 overflow-y-auto">
+          
+          <!-- TODAY'S WORKOUT PLAN SUGGESTION (DYNAMICALLY SHOWN) -->
+          <div id="todayPlanNotice" class="bg-butter-100 p-2.5 rounded-2xl border-2 border-sketchBrown/30 flex items-start gap-2 text-xs">
+            <svg class="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 70 70"><use href="#icon-cat-sitting"/></svg>
+            <div>
+              <span id="todayPlanDayLabel" class="font-black text-sketchBrown block text-[11px]">今日推薦運動：</span>
+              <p id="todayPlanDescLabel" class="text-sketchBrown/80 font-bold text-[11px] leading-tight mt-0.5"></p>
+            </div>
+          </div>
+
+          <!-- 1. WEIGHT RECORD SECTION -->
+          <div class="bg-white p-3 rounded-2xl border-2 border-sketchBrown/30 space-y-2">
+            <label class="font-black text-sketchBrown text-xs flex items-center gap-1.5">
+              <svg class="w-4 h-4" viewBox="0 0 60 60"><use href="#icon-cat-paw"/></svg>
+              今日體重 (kg)
+            </label>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <span class="text-[10px] text-sketchBrown/70 block mb-0.5">早晨體重</span>
+                <input type="number" step="0.1" id="inputWeightMorning" placeholder="例如: 50.2" class="w-full px-2.5 py-1.5 bg-cream-100 border border-sketchBrown/40 rounded-xl text-xs font-bold text-sketchBrown focus:outline-none focus:border-peach-400">
+              </div>
+              <div>
+                <span class="text-[10px] text-sketchBrown/70 block mb-0.5">晚間體重</span>
+                <input type="number" step="0.1" id="inputWeightEvening" placeholder="例如: 50.8" class="w-full px-2.5 py-1.5 bg-cream-100 border border-sketchBrown/40 rounded-xl text-xs font-bold text-sketchBrown focus:outline-none focus:border-peach-400">
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. DYNAMIC CUSTOM HABIT / ITEM CHECK-IN LIST -->
+          <div class="bg-freshSage-100/60 p-3.5 rounded-2xl border-2 border-sketchBrown/20">
+            <div class="flex justify-between items-center mb-2">
+              <label class="font-black text-sketchBrown text-xs flex items-center gap-1.5">
+                <svg class="w-4 h-4" viewBox="0 0 60 60"><use href="#icon-jumprope"/></svg>
+                日常項目完成紀錄 (勾選並填寫數量)
+              </label>
+              <button onclick="openSettingsModal()" class="text-[10px] font-bold text-peach-400 hover:underline">
+                ⚙️ 編輯項目
+              </button>
+            </div>
+
+            <!-- DYNAMICALLY RENDERED USER HABITS/ITEMS -->
+            <div id="diaryModalExerciseList" class="space-y-2">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- 3. DIARY NOTE / MOOD -->
+          <div class="bg-white p-3 rounded-2xl border-2 border-sketchBrown/30 space-y-2">
+            <label class="font-black text-sketchBrown text-xs flex items-center gap-1.5">
+              <svg class="w-4 h-4" viewBox="0 0 60 60"><use href="#icon-milk"/></svg>
+              心情與手帳小記
+            </label>
+            <textarea id="inputDiaryNote" rows="2" placeholder="今天有好好喝水、多走路嗎？寫下對自己的鼓勵吧..." class="w-full p-2.5 bg-cream-100 border border-sketchBrown/40 rounded-xl text-xs font-bold text-sketchBrown focus:outline-none focus:border-peach-400 resize-none"></textarea>
+          </div>
+
+        </div>
+
+        <!-- MODAL FOOTER -->
+        <div class="p-3 bg-cream-200 border-t-2 border-sketchBrown flex gap-2">
+          <button onclick="saveDiaryEntry()" class="w-full py-2.5 bg-peach-300 hover:bg-peach-400 text-white rounded-xl font-black text-sm border-2 border-sketchBrown shadow-md active:scale-95 transition-transform flex items-center justify-center gap-1">
+            <svg class="w-4 h-4" viewBox="0 0 60 60"><use href="#icon-cat-paw"/></svg>
+            儲存手帳日誌
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MODAL 2: SETTINGS & TITLE EDITOR -->
+    <div id="settingsModal" class="fixed inset-0 bg-sketchBrown/40 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+      <div class="bg-cream-100 w-full max-w-sm rounded-3xl border-3 border-sketchBrown shadow-2xl p-4 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center border-b-2 border-sketchBrown/20 pb-2">
+          <h3 class="font-black text-sketchBrown text-base flex items-center gap-1.5">
+            <svg class="w-5 h-5" viewBox="0 0 70 70"><use href="#icon-cat-sitting"/></svg>
+            手帳設定
+          </h3>
+          <button onclick="closeSettingsModal()" class="w-7 h-7 rounded-full bg-white border-2 border-sketchBrown flex items-center justify-center font-bold text-sketchBrown">✕</button>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div>
+            <label class="font-bold text-sketchBrown block mb-1">自訂手帳名稱：</label>
+            <input type="text" id="inputSettingsTitle" class="w-full p-2 bg-white border-2 border-sketchBrown rounded-xl font-bold text-sketchBrown focus:outline-none">
+          </div>
+
+          <div>
+            <label class="font-bold text-sketchBrown block mb-1">目標體重 (kg)：</label>
+            <input type="number" step="0.1" id="inputTargetWeight" class="w-full p-2 bg-white border-2 border-sketchBrown rounded-xl font-bold text-sketchBrown focus:outline-none">
+          </div>
+
+          <!-- EDIT CUSTOM TRACKING ITEMS -->
+          <div class="pt-2 border-t-2 border-sketchBrown/10">
+            <label class="font-bold text-sketchBrown block mb-2">自訂日常完成項目 (如：喝水、早睡、運動)：</label>
+            <div id="settingsExerciseList" class="space-y-2 mb-3">
+              <!-- Dynamically populated in JS -->
+            </div>
+            
+            <div class="flex gap-1.5 bg-white p-2 rounded-xl border-2 border-dashed border-sketchBrown/40">
+              <input type="text" id="newExName" placeholder="項目名稱 (如: 喝水)" class="flex-1 px-2 py-1 bg-cream-100 rounded-lg text-xs font-bold focus:outline-none">
+              <input type="text" id="newExUnit" placeholder="單位 (如: ml)" class="w-16 px-2 py-1 bg-cream-100 rounded-lg text-xs font-bold focus:outline-none">
+              <button onclick="addCustomExercise()" class="px-2.5 py-1 bg-peach-300 text-white font-black rounded-lg border border-sketchBrown text-xs hover:bg-peach-400">
+                新增
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="saveSettings()" class="w-full py-2 bg-freshSage-300 hover:bg-freshSage-200 text-sketchBrown rounded-xl font-black border-2 border-sketchBrown shadow-sm">
+          套用變更
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 3: EDIT WORKOUT PLAN MODAL (NEW) -->
+    <div id="editPlanModal" class="fixed inset-0 bg-sketchBrown/40 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden">
+      <div class="bg-cream-100 w-full max-w-sm rounded-3xl border-3 border-sketchBrown shadow-2xl p-4 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center border-b-2 border-sketchBrown/20 pb-2">
+          <h3 class="font-black text-sketchBrown text-base flex items-center gap-1.5">
+            <svg class="w-5 h-5" viewBox="0 0 60 60"><use href="#icon-jumprope"/></svg>
+            編輯每週運動菜單
+          </h3>
+          <button onclick="closeEditPlanModal()" class="w-7 h-7 rounded-full bg-white border-2 border-sketchBrown flex items-center justify-center font-bold text-sketchBrown">✕</button>
+        </div>
+
+        <div id="editPlanFormList" class="space-y-3">
+          <!-- Dynamically populated in JS -->
+        </div>
+
+        <button onclick="saveWorkoutPlanChanges()" class="w-full py-2.5 bg-peach-300 hover:bg-peach-400 text-white rounded-xl font-black border-2 border-sketchBrown shadow-sm">
+          儲存菜單修改
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // INITIAL APP STATE & STORAGE KEYS
+    const STORAGE_KEY_DIARY = 'cat_journal_entries_v4';
+    const STORAGE_KEY_EXERCISES = 'cat_journal_exercises_v4';
+    const STORAGE_KEY_SETTINGS = 'cat_journal_settings_v4';
+    const STORAGE_KEY_WORKOUT_PLAN = 'cat_journal_workout_plan_v4';
+
+    let currentYear = 2026;
+    // DEFAULT WORKOUT PLAN DATA WITH LOCALSTORAGE PERSISTENCE
+    let defaultWorkoutPlan = [
+      { day: 1, name: 'MON', title: 'Skipping day', desc: '1,000–2,000 jumps, divided into sets of 100–200. Rest between sets.' },
+      { day: 2, name: 'TUE', title: 'Video 2 (沙漏腰 3.0 進階)', desc: 'Start with 10–15 minutes of the 30-minute standing core and mobility workout. Increase only if comfortable.' },
+      { day: 3, name: 'WED', title: 'Skipping day', desc: '1,000–2,000 jumps if your calves, feet, ankles, and knees feel recovered.' },
+      { day: 4, name: 'THU', title: 'Recovery day', desc: 'Rest or take an easy walk. No need to make up missed jumps.' },
+      { day: 5, name: 'FRI', title: 'Skipping day', desc: '1,000–2,000 jumps in comfortable sets.' },
+      { day: 6, name: 'SAT', title: 'Video 2 (沙漏腰 3.0 進階)', desc: "Do 10–20 minutes, or the full 30 minutes if you've gradually built up to it and can maintain good form." },
+      { day: 0, name: 'SUN', title: 'Full rest', desc: 'Allow your body to recover before the next week.' }
+    ];
+
+    let weeklyWorkoutPlan = JSON.parse(localStorage.getItem(STORAGE_KEY_WORKOUT_PLAN)) || defaultWorkoutPlan;
+
+    // WORKOUT PLAN EDITING FUNCTIONS
+    function openEditPlanModal() {
+      const formContainer = document.getElementById('editPlanFormList');
+      formContainer.innerHTML = '';
+
+      weeklyWorkoutPlan.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = "bg-white p-2.5 rounded-xl border-2 border-sketchBrown/20 space-y-1.5";
+        card.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="font-black text-xs px-2 py-0.5 rounded-md bg-peach-200 text-sketchBrown">${item.name}</span>
+            <input type="text" id="planTitle_${index}" value="${item.title}" placeholder="標題 (如: 跳繩日)" class="flex-1 p-1 bg-cream-100 border border-sketchBrown/30 rounded-lg text-xs font-bold text-sketchBrown focus:outline-none">
+          </div>
+          <textarea id="planDesc_${index}" rows="2" placeholder="詳細內容..." class="w-full p-1.5 bg-cream-100 border border-sketchBrown/30 rounded-lg text-[11px] font-bold text-sketchBrown focus:outline-none resize-none">${item.desc}</textarea>
+        `;
+        formContainer.appendChild(card);
+      });
+
+      document.getElementById('editPlanModal').classList.remove('hidden');
+    }
+
+    function closeEditPlanModal() {
+      document.getElementById('editPlanModal').classList.add('hidden');
+    }
+
+    function saveWorkoutPlanChanges() {
+      weeklyWorkoutPlan.forEach((item, index) => {
+        const titleVal = document.getElementById(`planTitle_${index}`).value.trim();
+        const descVal = document.getElementById(`planDesc_${index}`).value.trim();
+        item.title = titleVal || '休息';
+        item.desc = descVal || '';
+      });
+
+      localStorage.setItem(STORAGE_KEY_WORKOUT_PLAN, JSON.stringify(weeklyWorkoutPlan));
+      closeEditPlanModal();
+      renderWorkoutPlan();
+    }
+
+    // STATE VARIABLES
+    let currentMonth = 9; // 0-indexed (9 = Oct)
+    let selectedDateStr = getTodayString();
+    
+    // DEFAULT EXERCISES LIST
+    let defaultExercises = [
+      { id: 'water', name: '喝水 2000ml', unit: 'ml', defaultVal: 2000 },
+      { id: 'sleep', name: '早睡 (23:00 前)', unit: '完成', defaultVal: 1 },
+      { id: 'skipping', name: '跳繩', unit: '下', defaultVal: 1000 },
+      { id: 'core', name: '核心運動/沙漏腰', unit: '分鐘', defaultVal: 15 }
+    ];
+
+    let customExercises = JSON.parse(localStorage.getItem(STORAGE_KEY_EXERCISES)) || defaultExercises;
+    let diaryEntries = JSON.parse(localStorage.getItem(STORAGE_KEY_DIARY)) || {};
+    let appSettings = JSON.parse(localStorage.getItem(STORAGE_KEY_SETTINGS)) || { title: '森之小貓減肥手帳', targetWeight: 48 };
+
+    // HELPER: GET TODAY YYYY-MM-DD
+    function getTodayString() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    // TAB SWITCHING
+    function switchTab(tabName) {
+      const vCal = document.getElementById('viewCalendar');
+      const vPlan = document.getElementById('viewPlan');
+      const vTrend = document.getElementById('viewTrend');
+      
+      const bCal = document.getElementById('tabBtnCalendar');
+      const bPlan = document.getElementById('tabBtnPlan');
+      const bTrend = document.getElementById('tabBtnTrend');
+
+      vCal.classList.add('hidden');
+      vPlan.classList.add('hidden');
+      vTrend.classList.add('hidden');
+
+      bCal.className = 'flex-1 py-1.5 rounded-xl text-xs font-bold text-gray-600 hover:text-sketchBrown transition-all flex items-center justify-center gap-1';
+      bPlan.className = 'flex-1 py-1.5 rounded-xl text-xs font-bold text-gray-600 hover:text-sketchBrown transition-all flex items-center justify-center gap-1';
+      bTrend.className = 'flex-1 py-1.5 rounded-xl text-xs font-bold text-gray-600 hover:text-sketchBrown transition-all flex items-center justify-center gap-1';
+
+      if (tabName === 'calendar') {
+        vCal.classList.remove('hidden');
+        bCal.className = 'flex-1 py-1.5 rounded-xl text-xs font-bold text-sketchBrown bg-white shadow-sm flex items-center justify-center gap-1 border border-sketchBrown';
+      } else if (tabName === 'plan') {
+        vPlan.classList.remove('hidden');
+        bPlan.className = 'flex-1 py-1.5 rounded-xl text-xs font-bold text-sketchBrown bg-white shadow-sm flex items-center justify-center gap-1 border border-sketchBrown';
+        renderWorkoutPlan();
+      } else if (tabName === 'trend') {
+        vTrend.classList.remove('hidden');
+        bTrend.className = 'flex-1 py-1.5 rounded-xl text-xs font-bold text-sketchBrown bg-white shadow-sm flex items-center justify-center gap-1 border border-sketchBrown';
+        renderTrendChart();
+      }
+    }
+
+    // RENDER WORKOUT PLAN TAB
+    function renderWorkoutPlan() {
+      const listContainer = document.getElementById('workoutPlanList');
+      if (!listContainer) return;
+      listContainer.innerHTML = '';
+
+      const today = new Date();
+      const todayDayIndex = today.getDay(); // 0 is SUN, 1 is MON...
+
+      weeklyWorkoutPlan.forEach(item => {
+        const isToday = item.day === todayDayIndex;
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-2xl border-2 transition-all ${isToday ? 'bg-butter-100 border-sketchBrown shadow-sm' : 'bg-white border-sketchBrown/20'}`;
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-1">
+            <div class="flex items-center gap-2">
+              <span class="font-black text-xs px-2 py-0.5 rounded-lg ${isToday ? 'bg-peach-300 text-white' : 'bg-mint-100 text-sketchBrown'} border border-sketchBrown/30">
+                ${item.name}
+              </span>
+              <h4 class="font-black text-sketchBrown text-xs">${item.title}</h4>
+            </div>
+            ${isToday ? '<span class="text-[9px] font-black bg-peach-400 text-white px-1.5 py-0.5 rounded-full shadow-xs">TODAY</span>' : ''}
+          </div>
+          <p class="text-[11px] text-sketchBrown/80 font-bold leading-relaxed pl-1">${item.desc}</p>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+
+    // RENDER MONTHLY CALENDAR (INTEGRATING WORKOUT PLAN & STATUS)
+    function renderCalendar() {
+      const grid = document.getElementById('calendarGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      document.getElementById('calendarMonthLabel').innerText = `${currentYear}年 ${currentMonth + 1}月`;
+
+      const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const todayStr = getTodayString();
+
+      // Empty cells before month start
+      for (let i = 0; i < firstDay; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = "h-13 rounded-xl bg-transparent";
+        grid.appendChild(emptyCell);
+      }
+
+      // Day tiles with integrated Workout Plan
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateObj = new Date(currentYear, currentMonth, day);
+        const dayOfWeek = dateObj.getDay(); // 0: SUN, 1: MON...
+        const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        
+        // Find workout plan for this day of week
+        const planItem = weeklyWorkoutPlan.find(p => p.day === dayOfWeek) || { title: '運動' };
+
+        const entry = diaryEntries[dateStr];
+        const isCompleted = entry && (entry.completed || entry.weightMorning || entry.weightEvening);
+        const isToday = dateStr === todayStr;
+
+        const cell = document.createElement('div');
+        cell.onclick = () => openDiaryModal(dateStr);
+        cell.className = `h-13 rounded-xl border-2 flex flex-col items-center justify-between p-1 cursor-pointer transition-transform active:scale-95 ${
+          isToday ? 'bg-butter-100 border-sketchBrown shadow-sm' : isCompleted ? 'bg-mint-100 border-sketchBrown/60' : 'bg-white border-sketchBrown/20 hover:border-sketchBrown'
+        }`;
+
+        // Top date number
+        let dayNumHtml = `<span class="text-[10px] font-black ${isToday ? 'text-peach-400 font-extrabold' : 'text-sketchBrown/70'}">${day}</span>`;
+
+        // Bottom integrated Workout Plan or Stamp
+        let workoutHtml = '';
+        if (isCompleted) {
+          workoutHtml = `<div class="flex items-center gap-0.5 text-[9px] font-black text-sketchBrown">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 60 60"><use href="#icon-cat-paw"/></svg>
+            <span class="truncate max-w-[36px]">${planItem.title.substring(0, 3)}</span>
+          </div>`;
+        } else {
+          // Display short plan name in calendar cell
+          workoutHtml = `<span class="text-[8px] font-bold text-sketchBrown/70 bg-cream-200/80 px-1 py-0.5 rounded text-center w-full truncate border border-sketchBrown/10">
+            ${planItem.title}
+          </span>`;
+        }
+
+        cell.innerHTML = `${dayNumHtml}${workoutHtml}`;
+        grid.appendChild(cell);
+      }
+    }
+
+    function changeMonth(delta) {
+      currentMonth += delta;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar();
+    }
+
+    // DIARY MODAL OPERATIONS
+    function openDiaryModal(dateStr) {
+      selectedDateStr = dateStr;
+      document.getElementById('modalDiaryDate').innerText = dateStr;
+
+      // Update Today Workout Plan Notice inside Modal
+      const dateObj = new Date(dateStr);
+      const dayIdx = dateObj.getDay();
+      const planItem = weeklyWorkoutPlan.find(p => p.day === dayIdx) || weeklyWorkoutPlan[0];
+      document.getElementById('todayPlanDayLabel').innerText = `【${planItem.name}】${planItem.title}`;
+      document.getElementById('todayPlanDescLabel').innerText = planItem.desc;
+
+      const entry = diaryEntries[dateStr] || {};
+      document.getElementById('inputWeightMorning').value = entry.weightMorning || '';
+      document.getElementById('inputWeightEvening').value = entry.weightEvening || '';
+      document.getElementById('inputDiaryNote').value = entry.note || '';
+
+      // Render Dynamic Habit Checkboxes
+      const container = document.getElementById('diaryModalExerciseList');
+      container.innerHTML = '';
+
+      customExercises.forEach(ex => {
+        const currentVal = (entry.exercises && entry.exercises[ex.id]) !== undefined ? entry.exercises[ex.id] : '';
+        const isChecked = currentVal !== '' && currentVal !== 0;
+
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between bg-white p-2 rounded-xl border border-sketchBrown/30";
+        row.innerHTML = `
+          <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-sketchBrown">
+            <input type="checkbox" id="chk_${ex.id}" ${isChecked ? 'checked' : ''} class="w-4 h-4 accent-peach-300 rounded cursor-pointer">
+            <span>${ex.name}</span>
+          </label>
+          <div class="flex items-center gap-1">
+            <input type="number" id="val_${ex.id}" value="${currentVal !== '' ? currentVal : ex.defaultVal}" placeholder="${ex.defaultVal}" class="w-16 px-1.5 py-0.5 bg-cream-100 border border-sketchBrown/30 rounded-lg text-xs font-bold text-center focus:outline-none">
+            <span class="text-[10px] font-bold text-sketchBrown/60">${ex.unit}</span>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      document.getElementById('diaryModal').classList.remove('hidden');
+    }
+
+    function closeDiaryModal() {
+      document.getElementById('diaryModal').classList.add('hidden');
+    }
+
+    function saveDiaryEntry() {
+      const weightMorning = document.getElementById('inputWeightMorning').value;
+      const weightEvening = document.getElementById('inputWeightEvening').value;
+      const note = document.getElementById('inputDiaryNote').value.trim();
+
+      const exercises = {};
+      let hasCompletedAny = false;
+
+      customExercises.forEach(ex => {
+        const chk = document.getElementById(`chk_${ex.id}`);
+        const valInput = document.getElementById(`val_${ex.id}`);
+        if (chk && chk.checked) {
+          exercises[ex.id] = parseFloat(valInput.value) || ex.defaultVal;
+          hasCompletedAny = true;
+        }
+      });
+
+      diaryEntries[selectedDateStr] = {
+        weightMorning: weightMorning ? parseFloat(weightMorning) : null,
+        weightEvening: weightEvening ? parseFloat(weightEvening) : null,
+        note: note,
+        exercises: exercises,
+        completed: hasCompletedAny || weightMorning || weightEvening
+      };
+
+      localStorage.setItem(STORAGE_KEY_DIARY, JSON.stringify(diaryEntries));
+      closeDiaryModal();
+      renderCalendar();
+      renderTrendChart();
+    }
+
+    // SETTINGS MODAL OPERATIONS
+    function openSettingsModal() {
+      document.getElementById('inputSettingsTitle').value = appSettings.title || '森之小貓減肥手帳';
+      document.getElementById('inputTargetWeight').value = appSettings.targetWeight || 48;
+      renderSettingsExerciseList();
+      document.getElementById('settingsModal').classList.remove('hidden');
+    }
+
+    function closeSettingsModal() {
+      document.getElementById('settingsModal').classList.add('hidden');
+    }
+
+    function renderSettingsExerciseList() {
+      const container = document.getElementById('settingsExerciseList');
+      container.innerHTML = '';
+
+      customExercises.forEach((ex, idx) => {
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between bg-white p-2 rounded-xl border border-sketchBrown/30";
+        row.innerHTML = `
+          <span class="font-bold text-xs text-sketchBrown">${ex.name} (${ex.unit})</span>
+          <button onclick="deleteCustomExercise(${idx})" class="text-xs text-peach-400 font-bold hover:underline">刪除</button>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function addCustomExercise() {
+      const nameInput = document.getElementById('newExName');
+      const unitInput = document.getElementById('newExUnit');
+      const name = nameInput.value.trim();
+      const unit = unitInput.value.trim() || '次';
+
+      if (!name) return;
+
+      const newId = 'ex_' + Date.now();
+      customExercises.push({ id: newId, name: name, unit: unit, defaultVal: 1 });
+      localStorage.setItem(STORAGE_KEY_EXERCISES, JSON.stringify(customExercises));
+      
+      nameInput.value = '';
+      unitInput.value = '';
+      renderSettingsExerciseList();
+    }
+
+    function deleteCustomExercise(index) {
+      customExercises.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY_EXERCISES, JSON.stringify(customExercises));
+      renderSettingsExerciseList();
+    }
+
+    function saveSettings() {
+      const titleVal = document.getElementById('inputSettingsTitle').value.trim();
+      const targetVal = document.getElementById('inputTargetWeight').value;
+
+      appSettings.title = titleVal || '森之小貓減肥手帳';
+      appSettings.targetWeight = targetVal ? parseFloat(targetVal) : 48;
+
+      localStorage.setItem(STORAGE_KEY_SETTINGS, JSON.stringify(appSettings));
+      document.getElementById('displayAppTitle').innerText = appSettings.title;
+      closeSettingsModal();
+    }
+
+    // RENDER WEIGHT TREND SVG CHART
+    function renderTrendChart() {
+      const svg = document.getElementById('weightSvgChart');
+      if (!svg) return;
+      svg.innerHTML = '';
+
+      const keys = Object.keys(diaryEntries).sort();
+      const points = [];
+
+      keys.forEach(k => {
+        const e = diaryEntries[k];
+        const w = e.weightMorning || e.weightEvening;
+        if (w) points.push({ date: k.slice(5), weight: w });
+      });
+
+      if (points.length === 0) {
+        svg.innerHTML = `<text x="160" y="90" text-anchor="middle" fill="#43342B" font-size="12" font-weight="bold">尚無體重紀錄，點擊下方筆印開始記錄吧！</text>`;
+        return;
+      }
+
+      const weights = points.map(p => p.weight);
+      const minW = Math.min(...weights) - 1;
+      const maxW = Math.max(...weights) + 1;
+
+      const width = 320;
+      const height = 180;
+      const padding = 30;
+
+      const getX = i => padding + (i / Math.max(points.length - 1, 1)) * (width - padding * 2);
+      const getY = w => height - padding - ((w - minW) / Math.max(maxW - minW, 1)) * (height - padding * 2);
+
+      // Draw Grid Lines
+      let pathD = '';
+      points.forEach((p, i) => {
+        const x = getX(i);
+        const y = getY(p.weight);
+        if (i === 0) pathD += `M ${x} ${y}`;
+        else pathD += ` L ${x} ${y}`;
+      });
+
+      // Line Path
+      const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      polyline.setAttribute('d', pathD);
+      polyline.setAttribute('fill', 'none');
+      polyline.setAttribute('stroke', '#FF8671');
+      polyline.setAttribute('stroke-width', '3');
+      polyline.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(polyline);
+
+      // Data Circles
+      points.forEach((p, i) => {
+        const x = getX(i);
+        const y = getY(p.weight);
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', x);
+        circle.setAttribute('cy', y);
+        circle.setAttribute('r', '4');
+        circle.setAttribute('fill', '#FFFCF7');
+        circle.setAttribute('stroke', '#43342B');
+        circle.setAttribute('stroke-width', '2');
+        svg.appendChild(circle);
+
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', x);
+        text.setAttribute('y', y - 8);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('fill', '#43342B');
+        text.setAttribute('font-size', '9');
+        text.setAttribute('font-weight', 'bold');
+        text.textContent = `${p.weight}`;
+        svg.appendChild(text);
+      });
+    }
+
+    // INITIALIZATION ON LOAD
+    window.onload = function() {
+      document.getElementById('displayAppTitle').innerText = appSettings.title || '森之小貓減肥手帳';
+      renderCalendar();
+      renderWorkoutPlan();
+    };
+  </script>
+</body>
+</html>
